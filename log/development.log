@@ -780,3 +780,31 @@ Processing by ArtistsController#show as HTML
 Completed 200 OK in 110ms (Views: 84.9ms | ActiveRecord: 1.4ms)
 
 
+Started GET "/artists" for 127.0.0.1 at 2020-03-19 13:29:32 -0400
+Processing by ArtistsController#index as HTML
+  Rendering artists/index.html.erb within layouts/application
+  [1m[36mArtist Load (1.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  Rendered artists/index.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 389ms (Views: 306.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/artists/3/songs" for 127.0.0.1 at 2020-03-19 13:29:36 -0400
+Processing by SongsController#index as HTML
+  Parameters: {"artist_id"=>"3"}
+  [1m[36mArtist Load (0.8ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering songs/index.html.erb within layouts/application
+  [1m[36mSong Load (0.7ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."artist_id" = ?[0m  [["artist_id", 3]]
+  Rendered songs/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 210ms (Views: 122.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/artists/3/" for 127.0.0.1 at 2020-03-19 13:29:45 -0400
+Processing by ArtistsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mArtist Load (0.9ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering artists/show.html.erb within layouts/application
+  [1m[36mSong Load (1.6ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."artist_id" = ?[0m  [["artist_id", 3]]
+  Rendered artists/show.html.erb within layouts/application (23.2ms)
+Completed 200 OK in 363ms (Views: 281.4ms | ActiveRecord: 2.4ms)
+
+
